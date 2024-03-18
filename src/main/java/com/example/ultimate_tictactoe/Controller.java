@@ -16,6 +16,7 @@ public class Controller {
     private final BoardStatus[][][][] gameBoard = new BoardStatus[GlobalColumn][GlobalRow][LocalColumn][LocalRow];
     private final BoardStatus[][] localGameResults = new BoardStatus[GlobalColumn][GlobalRow];
     private BoardStatus onTheMove;
+    private BoardStatus gameWinner;
     private Integer previousGlobalColumn;
     private Integer previousGlobalRow;
     private Integer previousLocalColumn;
@@ -39,6 +40,7 @@ public class Controller {
         previousGlobalColumn = 0;
         previousGlobalRow = 0;
         onTheMove = BoardStatus.X;
+        gameWinner = BoardStatus.UDETERMINED;
     }
     public void performMove(ActionEvent event) {
         Button square = (Button) event.getSource();
@@ -54,9 +56,9 @@ public class Controller {
             gameBoard[globalColumn][globalRow][localColumn][localRow] = onTheMove;
             square.setText(onTheMove.toString());
 
-            if (localWinner(globalColumn, globalRow) != BoardStatus.UDETERMINED){
-                if (globalWinner() != BoardStatus.UDETERMINED){
-                    // Kaj se zgodi, ko zmagaš ...
+            if ((localGameResults[globalColumn][globalRow] = localWinner(globalColumn, globalRow)) != BoardStatus.UDETERMINED){
+                if ((gameWinner = globalWinner()) != BoardStatus.UDETERMINED){
+                    System.out.println("Zmagovalec je " + gameWinner.toString());
                 }
             }
 
@@ -95,60 +97,73 @@ public class Controller {
 
         // Preverjanje zmagovalca horizontalno
         for (int i = 0; i < 3; i++){
-            if (gameBoard[globalColumn][globalRow][0][i] == BoardStatus.X && gameBoard[globalColumn][globalRow][1][i] == BoardStatus.X && gameBoard[globalColumn][globalRow][2][i] == BoardStatus.X){
-                localGameResults[globalColumn][globalRow] = BoardStatus.X;
+            if (gameBoard[globalColumn][globalRow][0][i] == BoardStatus.X && gameBoard[globalColumn][globalRow][1][i] == BoardStatus.X && gameBoard[globalColumn][globalRow][2][i] == BoardStatus.X)
                 return BoardStatus.X;
-            }
-            else if (gameBoard[globalColumn][globalRow][0][i] == BoardStatus.O && gameBoard[globalColumn][globalRow][1][i] == BoardStatus.O && gameBoard[globalColumn][globalRow][2][i] == BoardStatus.O){
-                localGameResults[globalColumn][globalRow] = BoardStatus.O;
+            else if (gameBoard[globalColumn][globalRow][0][i] == BoardStatus.O && gameBoard[globalColumn][globalRow][1][i] == BoardStatus.O && gameBoard[globalColumn][globalRow][2][i] == BoardStatus.O)
                 return BoardStatus.O;
-            }
         }
 
         // Preverjanje zmagovalca vertikalno
         for (int i = 0; i < 3; i++){
-            if (gameBoard[globalColumn][globalRow][i][0] == BoardStatus.X && gameBoard[globalColumn][globalRow][i][1] == BoardStatus.X && gameBoard[globalColumn][globalRow][i][2] == BoardStatus.X){
-                localGameResults[globalColumn][globalRow] = BoardStatus.X;
+            if (gameBoard[globalColumn][globalRow][i][0] == BoardStatus.X && gameBoard[globalColumn][globalRow][i][1] == BoardStatus.X && gameBoard[globalColumn][globalRow][i][2] == BoardStatus.X)
                 return BoardStatus.X;
-            }
-
-            else if (gameBoard[globalColumn][globalRow][i][0] == BoardStatus.O && gameBoard[globalColumn][globalRow][i][1] == BoardStatus.O && gameBoard[globalColumn][globalRow][i][2] == BoardStatus.O){
-                localGameResults[globalColumn][globalRow] = BoardStatus.O;
+            else if (gameBoard[globalColumn][globalRow][i][0] == BoardStatus.O && gameBoard[globalColumn][globalRow][i][1] == BoardStatus.O && gameBoard[globalColumn][globalRow][i][2] == BoardStatus.O)
                 return BoardStatus.O;
-            }
         }
 
         // Preverjanje zmagovalca po padajoči diagonali
-        if (gameBoard[globalColumn][globalRow][0][0] == BoardStatus.X && gameBoard[globalColumn][globalRow][1][1] == BoardStatus.X && gameBoard[globalColumn][globalRow][2][2] == BoardStatus.X){
-            localGameResults[globalColumn][globalRow] = BoardStatus.X;
+        if (gameBoard[globalColumn][globalRow][0][0] == BoardStatus.X && gameBoard[globalColumn][globalRow][1][1] == BoardStatus.X && gameBoard[globalColumn][globalRow][2][2] == BoardStatus.X)
             return BoardStatus.X;
-        }
-        else if (gameBoard[globalColumn][globalRow][0][0] == BoardStatus.O && gameBoard[globalColumn][globalRow][1][1] == BoardStatus.O && gameBoard[globalColumn][globalRow][2][2] == BoardStatus.O){
-            localGameResults[globalColumn][globalRow] = BoardStatus.O;
+        else if (gameBoard[globalColumn][globalRow][0][0] == BoardStatus.O && gameBoard[globalColumn][globalRow][1][1] == BoardStatus.O && gameBoard[globalColumn][globalRow][2][2] == BoardStatus.O)
             return BoardStatus.O;
-        }
 
         // Preverjanje zmagovalca po naraščujoči diagonali
-        else if (gameBoard[globalColumn][globalRow][2][0] == BoardStatus.X && gameBoard[globalColumn][globalRow][1][1] == BoardStatus.X && gameBoard[globalColumn][globalRow][0][2] == BoardStatus.X){
-            localGameResults[globalColumn][globalRow] = BoardStatus.X;
+        else if (gameBoard[globalColumn][globalRow][2][0] == BoardStatus.X && gameBoard[globalColumn][globalRow][1][1] == BoardStatus.X && gameBoard[globalColumn][globalRow][0][2] == BoardStatus.X)
             return BoardStatus.X;
-        }
-        else if (gameBoard[globalColumn][globalRow][2][0] == BoardStatus.O && gameBoard[globalColumn][globalRow][1][1] == BoardStatus.O && gameBoard[globalColumn][globalRow][0][2] == BoardStatus.O){
-            localGameResults[globalColumn][globalRow] = BoardStatus.O;
+        else if (gameBoard[globalColumn][globalRow][2][0] == BoardStatus.O && gameBoard[globalColumn][globalRow][1][1] == BoardStatus.O && gameBoard[globalColumn][globalRow][0][2] == BoardStatus.O)
             return BoardStatus.O;
-        }
 
         // Preverjanje ali je lokalna igra izenačena
-        if (isLocalBoardFull(globalColumn, globalRow)){
-            localGameResults[globalColumn][globalRow] = BoardStatus.TIE;
+        if (isLocalBoardFull(globalColumn, globalRow))
             return BoardStatus.TIE;
-        }
 
         // Če ni niti zmagovalca, niti izenačeno, je igra še ne dokončana
-        localGameResults[globalColumn][globalRow] = BoardStatus.UDETERMINED;
         return BoardStatus.UDETERMINED;
     }
     public BoardStatus globalWinner(){
+        // Preverjanje zmagovalca horizontalno
+        for (int i = 0; i < 3; i++){
+            if (localGameResults[0][i] == BoardStatus.X && localGameResults[1][i] == BoardStatus.X && localGameResults[2][i] == BoardStatus.X)
+                return BoardStatus.X;
+            else if (localGameResults[0][i] == BoardStatus.O && localGameResults[1][i] == BoardStatus.O && localGameResults[2][i] == BoardStatus.O)
+                return BoardStatus.O;
+        }
+
+        // Preverjanje zmagovalca vertikalno
+        for (int i = 0; i < 3; i++){
+            if (localGameResults[i][0] == BoardStatus.X && localGameResults[i][1] == BoardStatus.X && localGameResults[i][2] == BoardStatus.X)
+                return BoardStatus.X;
+            else if (localGameResults[i][0] == BoardStatus.O && localGameResults[i][1] == BoardStatus.O && localGameResults[i][2] == BoardStatus.O)
+                return BoardStatus.O;
+        }
+
+        // Preverjanje zmagovalca po padajoči diagonali
+        if (localGameResults[0][0] == BoardStatus.X && localGameResults[1][1] == BoardStatus.X && localGameResults[2][2] == BoardStatus.X)
+            return BoardStatus.X;
+        else if (localGameResults[0][0] == BoardStatus.O && localGameResults[1][1] == BoardStatus.O && localGameResults[2][2] == BoardStatus.O)
+            return BoardStatus.O;
+
+        // Preverjanje zmagovalca po naraščujoči diagonali
+        else if (localGameResults[2][0] == BoardStatus.X && localGameResults[1][1] == BoardStatus.X && localGameResults[0][2] == BoardStatus.X)
+            return BoardStatus.X;
+        else if (localGameResults[2][0] == BoardStatus.O && localGameResults[1][1] == BoardStatus.O && localGameResults[0][2] == BoardStatus.O)
+            return BoardStatus.O;
+
+        // Preverjanje ali je lokalna igra izenačena
+        if (isGlobalBoardFull())
+            return BoardStatus.TIE;
+
+        // Če ni niti zmagovalca, niti izenačeno, je igra še ne dokončana
         return BoardStatus.UDETERMINED;
     }
     public boolean isLocalBoardFull(int globalColumn, int globalRow){
@@ -156,6 +171,18 @@ public class Controller {
         for (int i = 0; i < 3; i++){
             for (int j = 0; j < 3; j++){
                 if(gameBoard[globalColumn][globalRow][i][j] != BoardStatus.EMPTY)
+                    counter ++;
+            }
+        }
+        if (counter == 9)
+            return true;
+        return false;
+    }
+    public boolean isGlobalBoardFull(){
+        int counter = 0;
+        for (int i = 0; i < 3; i++){
+            for (int j = 0; j < 3; j++){
+                if(localGameResults[i][j] != BoardStatus.UDETERMINED)
                     counter ++;
             }
         }
