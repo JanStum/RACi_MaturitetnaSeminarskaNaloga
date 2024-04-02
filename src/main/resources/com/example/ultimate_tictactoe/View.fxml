@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -8,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ultimate_tictactoe.Controller">
    <children>
-      <GridPane gridLinesVisible="true" hgap="6.0" layoutX="127.0" layoutY="41.0" prefHeight="300.0" prefWidth="300.0" vgap="6.0">
+      <GridPane fx:id="ultimateGrid" hgap="6.0" layoutX="150.0" layoutY="51.0" prefHeight="300.0" prefWidth="300.0" vgap="6.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -20,7 +21,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <GridPane hgap="3.0" vgap="3.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <GridPane fx:id="localGrid1" hgap="3.0" styleClass="playable-local-grid" vgap="3.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -32,18 +33,18 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="44.0" prefWidth="55.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="63.0" prefWidth="80.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="52.0" prefWidth="70.0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="47.0" prefWidth="68.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="59.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="49.0" prefWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="53.0" prefWidth="64.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="48.0" prefWidth="49.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="53.0" prefWidth="61.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="44.0" prefWidth="55.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="63.0" prefWidth="80.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="52.0" prefWidth="70.0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="47.0" prefWidth="68.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="59.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="49.0" prefWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="53.0" prefWidth="64.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="48.0" prefWidth="49.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="53.0" prefWidth="61.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                </children>
             </GridPane>
-            <GridPane hgap="3.0" vgap="3.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <GridPane fx:id="localGrid2" hgap="3.0" styleClass="playable-local-grid" vgap="3.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -55,18 +56,18 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="51.0" prefWidth="80.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="57.0" prefWidth="79.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="43.0" prefWidth="57.0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="47.0" prefWidth="60.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="46.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="50.0" prefWidth="64.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="49.0" prefWidth="56.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="72.0" prefWidth="84.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="62.0" prefWidth="80.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="51.0" prefWidth="80.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="57.0" prefWidth="79.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="43.0" prefWidth="57.0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="47.0" prefWidth="60.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="46.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="50.0" prefWidth="64.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="49.0" prefWidth="56.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="72.0" prefWidth="84.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="62.0" prefWidth="80.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                </children>
             </GridPane>
-            <GridPane hgap="3.0" vgap="3.0" GridPane.columnIndex="2" GridPane.rowIndex="0">
+            <GridPane fx:id="localGrid3" hgap="3.0" styleClass="playable-local-grid" vgap="3.0" GridPane.columnIndex="2" GridPane.rowIndex="0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -78,18 +79,18 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="58.0" prefWidth="74.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="46.0" prefWidth="63.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="48.0" prefWidth="74.0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="50.0" prefWidth="67.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="44.0" prefWidth="53.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="42.0" prefWidth="48.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="54.0" prefWidth="84.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="61.0" prefWidth="71.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="60.0" prefWidth="66.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="58.0" prefWidth="74.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="46.0" prefWidth="63.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="48.0" prefWidth="74.0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="50.0" prefWidth="67.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="44.0" prefWidth="53.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="42.0" prefWidth="48.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="54.0" prefWidth="84.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="61.0" prefWidth="71.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="60.0" prefWidth="66.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                </children>
             </GridPane>
-            <GridPane hgap="3.0" vgap="3.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <GridPane fx:id="localGrid4" hgap="3.0" styleClass="playable-local-grid" vgap="3.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -101,18 +102,18 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="48.0" prefWidth="79.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="35.0" prefWidth="56.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="38.0" prefWidth="47.0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="43.0" prefWidth="55.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="50.0" prefWidth="67.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="52.0" prefWidth="62.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="48.0" prefWidth="64.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="52.0" prefWidth="68.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="43.0" prefWidth="52.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="48.0" prefWidth="79.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="35.0" prefWidth="56.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="38.0" prefWidth="47.0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="43.0" prefWidth="55.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="50.0" prefWidth="67.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="52.0" prefWidth="62.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="48.0" prefWidth="64.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="52.0" prefWidth="68.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="43.0" prefWidth="52.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                </children>
             </GridPane>
-            <GridPane hgap="3.0" vgap="3.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <GridPane fx:id="localGrid5" hgap="3.0" styleClass="playable-local-grid" vgap="3.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -124,18 +125,18 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="36.0" prefWidth="42.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="39.0" prefWidth="65.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="38.0" prefWidth="48.0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="40.0" prefWidth="45.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="45.0" prefWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="48.0" prefWidth="53.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="53.0" prefWidth="60.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="57.0" prefWidth="62.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="60.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="36.0" prefWidth="42.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="39.0" prefWidth="65.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="38.0" prefWidth="48.0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="40.0" prefWidth="45.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="45.0" prefWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="48.0" prefWidth="53.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="53.0" prefWidth="60.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="57.0" prefWidth="62.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="60.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                </children>
             </GridPane>
-            <GridPane hgap="3.0" vgap="3.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <GridPane fx:id="localGrid6" hgap="3.0" styleClass="playable-local-grid" vgap="3.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -147,18 +148,18 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="43.0" prefWidth="52.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="36.0" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="34.0" prefWidth="43.0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="33.0" prefWidth="43.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="43.0" prefWidth="58.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="49.0" prefWidth="48.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="47.0" prefWidth="73.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="47.0" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="49.0" prefWidth="54.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="43.0" prefWidth="52.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="36.0" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="34.0" prefWidth="43.0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="33.0" prefWidth="43.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="43.0" prefWidth="58.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="49.0" prefWidth="48.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="47.0" prefWidth="73.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="47.0" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="49.0" prefWidth="54.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                </children>
             </GridPane>
-            <GridPane hgap="3.0" vgap="3.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
+            <GridPane fx:id="localGrid7" hgap="3.0" styleClass="playable-local-grid" vgap="3.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -170,18 +171,18 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="45.0" prefWidth="52.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="39.0" prefWidth="46.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="43.0" prefWidth="59.0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="46.0" prefWidth="66.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="43.0" prefWidth="72.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="39.0" prefWidth="43.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="47.0" prefWidth="77.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="45.0" prefWidth="67.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="54.0" prefWidth="67.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="45.0" prefWidth="52.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="39.0" prefWidth="46.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="43.0" prefWidth="59.0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="46.0" prefWidth="66.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="43.0" prefWidth="72.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="39.0" prefWidth="43.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="47.0" prefWidth="77.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="45.0" prefWidth="67.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="54.0" prefWidth="67.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                </children>
             </GridPane>
-            <GridPane hgap="3.0" vgap="3.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <GridPane fx:id="localGrid8" hgap="3.0" styleClass="playable-local-grid" vgap="3.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -193,18 +194,18 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="45.0" prefWidth="46.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="46.0" prefWidth="73.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="38.0" prefWidth="38.0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="41.0" prefWidth="53.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="41.0" prefWidth="49.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="41.0" prefWidth="41.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="47.0" prefWidth="56.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="39.0" prefWidth="40.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="38.0" prefWidth="41.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="45.0" prefWidth="46.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="46.0" prefWidth="73.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="38.0" prefWidth="38.0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="41.0" prefWidth="53.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="41.0" prefWidth="49.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="41.0" prefWidth="41.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="47.0" prefWidth="56.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="39.0" prefWidth="40.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="38.0" prefWidth="41.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                </children>
             </GridPane>
-            <GridPane hgap="3.0" vgap="3.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <GridPane fx:id="localGrid9" hgap="3.0" styleClass="playable-local-grid" vgap="3.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -216,18 +217,28 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="45.0" prefWidth="67.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="47.0" prefWidth="47.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="43.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="49.0" prefWidth="66.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="48.0" prefWidth="63.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="50.0" prefWidth="44.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="49.0" prefWidth="52.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="47.0" prefWidth="57.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" onAction="#performMove" prefHeight="59.0" prefWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="45.0" prefWidth="67.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="47.0" prefWidth="47.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="43.0" prefWidth="37.0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="49.0" prefWidth="66.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="48.0" prefWidth="63.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="50.0" prefWidth="44.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="49.0" prefWidth="52.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="47.0" prefWidth="57.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" alignment="CENTER" onAction="#performMove" prefHeight="59.0" prefWidth="58.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                </children>
             </GridPane>
+            <Label fx:id="localWinnerLabel1" prefHeight="118.0" prefWidth="96.0" alignment="CENTER" />
+            <Label fx:id="localWinnerLabel2" prefHeight="118.0" prefWidth="96.0" alignment="CENTER" GridPane.columnIndex="1" />
+            <Label fx:id="localWinnerLabel3" prefHeight="118.0" prefWidth="96.0" alignment="CENTER" GridPane.columnIndex="2" />
+            <Label fx:id="localWinnerLabel4" prefHeight="96.0" prefWidth="92.0" alignment="CENTER" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+            <Label fx:id="localWinnerLabel5" prefHeight="118.0" prefWidth="96.0" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="localWinnerLabel6" prefHeight="118.0" prefWidth="96.0" alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label fx:id="localWinnerLabel7" prefHeight="118.0" prefWidth="96.0" alignment="CENTER" GridPane.rowIndex="2" />
+            <Label fx:id="localWinnerLabel8" prefHeight="118.0" prefWidth="96.0" alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="localWinnerLabel9" prefHeight="118.0" prefWidth="96.0" alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
          </children>
       </GridPane>
+      <Button fx:id="resetButton" layoutX="269.0" layoutY="362.0" mnemonicParsing="false" alignment="CENTER" onAction="#resetGame" text="Reset" />
    </children>
 </AnchorPane>

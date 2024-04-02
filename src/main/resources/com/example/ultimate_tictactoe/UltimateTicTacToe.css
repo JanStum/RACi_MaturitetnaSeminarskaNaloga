@@ -1,0 +1,105 @@
+AnchorPane {
+    -fx-background-color: #2b2b2b;
+}
+/*
+Button {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-shape: "M0,0 H100 V50 H0 Z";
+}
+
+#ultimateGrid > *:hover .button{
+    -fx-background-color:#3f0069;
+}
+
+Button:hover {
+    -fx-background-color: #404040;
+}
+*/
+#ultimateGrid {
+    -fx-background-color: #558fa3;
+    -fx-border-color: #558fa3;
+    -fx-border-width: 5px;
+}
+
+
+
+.local-winner-x {
+    -fx-background-color:  #750010;
+    -fx-text-fill: white;
+    -fx-font-size: 48px;
+    -fx-shape: "M0,0 H100 V50 H0 Z";
+    -fx-text-align: center;
+}
+.local-winner-o {
+    -fx-background-color:  #002575;
+    -fx-text-fill: white;
+    -fx-font-size: 48px;
+    -fx-shape: "M0,0 H100 V50 H0 Z";
+    -fx-text-align: center;
+}
+.local-winner-tie {
+    -fx-background-color:  #a69200;
+    -fx-text-fill: white;
+    -fx-font-size: 48px;
+    -fx-shape: "M0,0 H100 V50 H0 Z";
+    -fx-text-align: center;
+}
+
+
+
+
+.playable-local-grid {
+    -fx-background-color: white;
+}
+.playable-local-grid .button{
+    -fx-background-color: #00293d;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-shape: "M0,0 H100 V50 H0 Z";
+    -fx-text-align: center;
+}
+
+.non-playable-local-grid {
+    -fx-background-color: white;
+}
+.non-playable-local-grid .button{
+    -fx-background-color: black;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-shape: "M0,0 H100 V50 H0 Z";
+    -fx-text-align: center;
+}
+
+.square-x {
+     -fx-background-color: #750010;
+     -fx-text-fill: white;
+     -fx-font-size: 14px;
+     -fx-font-weight: bold;
+     -fx-shape: "M0,0 H100 V50 H0 Z";
+     -fx-text-align: center;
+}
+.square-o {
+     -fx-background-color: #002575;
+     -fx-text-fill: white;
+     -fx-font-size: 14px;
+     -fx-font-weight: bold;
+     -fx-shape: "M0,0 H100 V50 H0 Z";
+     -fx-text-align: center;
+}
+.test {
+     -fx-background-color: orange;
+}
+#resetButton {
+     -fx-background-color: black;
+     -fx-border-color: #558fa3;
+     -fx-border-width: 2px;
+     -fx-text-fill: white;
+     -fx-font-size: 12px;
+     -fx-shape: "M0,0 H100 V50 H0 Z";
+     -fx-text-align: center;
+}
