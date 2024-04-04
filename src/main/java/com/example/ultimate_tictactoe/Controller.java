@@ -108,6 +108,8 @@ public class Controller {
         }
     }public void resetGame(ActionEvent event){
         initialize();
+        previousLocalColumn = null;
+        previousLocalRow = null;
         for (int i = 0; i<3; i++){
             for (int j = 0; j<3; j++){
                 for (Node node : localGrid[i][j].getChildren()) {

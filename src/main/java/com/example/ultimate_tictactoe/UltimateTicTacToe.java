@@ -11,7 +11,7 @@ public class UltimateTicTacToe extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(UltimateTicTacToe.class.getResource("View.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1000, 1000);
+        Scene scene = new Scene(fxmlLoader.load(), 1300, 1200);
         stage.setTitle("Ultimate Tic-Tac-Toe");
         stage.setScene(scene);
         scene.getStylesheets().add(getClass().getResource("UltimateTicTacToe.css").toExternalForm());
