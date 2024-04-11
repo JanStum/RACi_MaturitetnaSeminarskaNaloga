@@ -14,6 +14,8 @@ public class Controller {
     private GridPane[][] localGrid = new GridPane[3][3];
     @FXML
     private Label localWinnerLabel1, localWinnerLabel2, localWinnerLabel3, localWinnerLabel4, localWinnerLabel5, localWinnerLabel6, localWinnerLabel7, localWinnerLabel8, localWinnerLabel9;
+    @FXML
+    private Label topText;
     private Label[][] localWinnerLabel = new Label[3][3];
     private final int GlobalRow = 3; private final int GlobalColumn = 3; private final int LocalRow = 3; private final int LocalColumn = 3;
     private enum BoardStatus {
@@ -51,6 +53,7 @@ public class Controller {
         previousGlobalRow = 0;
         onTheMove = BoardStatus.X;
         gameWinner = BoardStatus.UNDETERMINED;
+        topText.setText("X to move");
         localGrid[0][0] = localGrid1; localGrid[1][0] = localGrid2; localGrid[2][0] = localGrid3; localGrid[0][1] = localGrid4; localGrid[1][1] = localGrid5; localGrid[2][1] = localGrid6; localGrid[0][2] = localGrid7; localGrid[1][2] = localGrid8; localGrid[2][2] = localGrid9;
         localWinnerLabel[0][0] = localWinnerLabel1; localWinnerLabel[1][0] = localWinnerLabel2; localWinnerLabel[2][0] = localWinnerLabel3; localWinnerLabel[0][1] = localWinnerLabel4; localWinnerLabel[1][1] = localWinnerLabel5; localWinnerLabel[2][1] = localWinnerLabel6; localWinnerLabel[0][2] = localWinnerLabel7; localWinnerLabel[1][2] = localWinnerLabel8; localWinnerLabel[2][2] = localWinnerLabel9;
         for (int i = 0; i<3; i++){
@@ -86,7 +89,12 @@ public class Controller {
             if ((localGameResults[globalColumn][globalRow] = localWinner(globalColumn, globalRow)) != BoardStatus.UNDETERMINED){
                 indicateLocalWinner(globalColumn, globalRow, square);
                 if ((gameWinner = globalWinner()) != BoardStatus.UNDETERMINED){
-                    System.out.println("Zmagovalec je " + gameWinner.toString());
+                    if (gameWinner != BoardStatus.TIE){
+                        topText.setText(gameWinner.toString() + " wins!");
+                    }
+                    else{
+                        topText.setText(gameWinner.toString());
+                    }
                 }
             }
 
@@ -96,17 +104,21 @@ public class Controller {
             previousLocalRow = localRow;
 
             indicatePlayableLocalGrid();
-
-            switch (onTheMove){
-                case X:
-                    onTheMove = BoardStatus.O;
-                    break;
-                case O:
-                    onTheMove = BoardStatus.X;
-                    break;
+            if ((gameWinner = globalWinner()) == BoardStatus.UNDETERMINED){
+                switch (onTheMove){
+                    case X:
+                        onTheMove = BoardStatus.O;
+                        topText.setText("O to move");
+                        break;
+                    case O:
+                        onTheMove = BoardStatus.X;
+                        topText.setText("X to move");
+                        break;
+                }
             }
         }
-    }public void resetGame(ActionEvent event){
+    }
+    public void resetGame(ActionEvent event){
         initialize();
         previousLocalColumn = null;
         previousLocalRow = null;
@@ -115,14 +127,16 @@ public class Controller {
                 for (Node node : localGrid[i][j].getChildren()) {
                     if (node instanceof Button) {
                         ((Button) node).setText(null);
+                        node.getStyleClass().clear();
                         node.getStyleClass().removeAll("square-x", "square-o");
-                        //node.getStyleClass().add("test");
+                        node.getStyleClass().add("button");
                     }
                 }
                 localGrid[i][j].getStyleClass().clear();
                 localGrid[i][j].getStyleClass().add("playable-local-grid");
             }
         }
+
     }
     public boolean isValidLocalMove(int globalColumn, int globalRow, int localColumn, int localRow){
         if (localGameResults[globalColumn][globalRow] == BoardStatus.UNDETERMINED
@@ -211,7 +225,7 @@ public class Controller {
         if (isGlobalBoardFull())
             return BoardStatus.TIE;
 
-        // Če ni niti zmagovalca, niti izenačeno, je igra še ne dokončana
+        // Če ni niti zmagovalca, niti izenačeno, je igra še nedokončana
         return BoardStatus.UNDETERMINED;
     }
     public boolean isLocalBoardFull(int globalColumn, int globalRow){

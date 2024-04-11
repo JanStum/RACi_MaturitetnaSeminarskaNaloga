@@ -2,43 +2,45 @@ AnchorPane {
     -fx-background-color: #2b2b2b;
 }
 #ultimateGrid {
-    -fx-background-color: #558fa3;
-    -fx-border-color: #558fa3;
-    -fx-border-width: 5px;
+    -fx-background-color:#36ffeb;
 }
 #resetButton {
+     -fx-font-family: DejaVuMathTeXGyre-Regular;
      -fx-background-color: black;
-     -fx-border-color: #558fa3;
-     -fx-border-width: 5px;
+     -fx-border-color: #36ffeb;
+     -fx-border-width: 3px;
      -fx-text-fill: white;
      -fx-font-size: 32px;
      -fx-shape: "M0,0 H100 V50 H0 Z";
-     -fx-text-align: center;
 }
-
+#topText {
+    -fx-font-family: DejaVuMathTeXGyre-Regular;
+    -fx-text-fill: white;
+    -fx-font-size: 58px;
+}
 
 
 
 
 
 .local-winner-x {
-    -fx-background-color:  #750010;
+    -fx-background-color:  #870012;
     -fx-text-fill: white;
-    -fx-font-size: 250px;
+    -fx-font-size: 200px;
     -fx-shape: "M0,0 H100 V50 H0 Z";
     -fx-text-align: center;
 }
 .local-winner-o {
-    -fx-background-color:  #002575;
+    -fx-background-color:  #002a85;
     -fx-text-fill: white;
-    -fx-font-size: 250px;
+    -fx-font-size: 200px;
     -fx-shape: "M0,0 H100 V50 H0 Z";
     -fx-text-align: center;
 }
 .local-winner-tie {
-    -fx-background-color:  #a69200;
+    -fx-background-color:  #b59f00;
     -fx-text-fill: white;
-    -fx-font-size: 250px;
+    -fx-font-size: 200px;
     -fx-shape: "M0,0 H100 V50 H0 Z";
     -fx-text-align: center;
 }
@@ -50,7 +52,7 @@ AnchorPane {
     -fx-background-color: white;
 }
 .playable-local-grid .button{
-    -fx-background-color: #00293d;
+    -fx-background-color: #6a3880;
     -fx-text-fill: white;
     -fx-font-size: 42px;
     -fx-shape: "M0,0 H100 V50 H0 Z";
@@ -73,7 +75,7 @@ AnchorPane {
 
 
 .square-x {
-     -fx-background-color: #750010;
+     -fx-background-color: #870012;
      -fx-text-fill: white;
      -fx-font-size: 42px;
 
@@ -81,13 +83,10 @@ AnchorPane {
      -fx-text-align: center;
 }
 .square-o {
-     -fx-background-color: #002575;
+     -fx-background-color: #002a85;
      -fx-text-fill: white;
      -fx-font-size: 42px;
 
      -fx-shape: "M0,0 H100 V50 H0 Z";
      -fx-text-align: center;
-}
-.test {
-     -fx-background-color: orange;
 }
